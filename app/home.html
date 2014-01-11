@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" ng-app="VSRoot">
+<head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+  
+  
+  	<!-- 首頁 以及 Project所需之函式庫 -->
+    <!-- Icon fonts -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <!-- 主框架的css -->
+    <link rel="stylesheet" href="css/VS.css" type="text/css" />
+    
+    <!-- jquery lib -->
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <!-- 引用KineticJS -->
+    <script type="text/javascript" src="lib/kinetic-v4.3.3-beta"></script>
+    
+    <!-- 自製彈出視窗 -->
+    <link rel="stylesheet" href="css/PopUpDialog.css" type="text/css" />
+	<script type="text/javascript" src="js/PopUpDialog.js"></script>
+    <!-- 新增工作群組(epic)的code -->
+    <script type="text/javascript" src="lib/Epic.js"></script>  
+    
+    <!-- AngularJS lib -->
+    <!--<link rel="stylesheet" href="css/bootstrap.css">-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/AngularCustom.js"></script>
+    <!-- 首頁 以及 Project所需之函式庫 -->
+    
+    <!-- 任務的函式庫 -->
+    <!-- 應該可以省略  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
+    <!--<link href='JQueryGridly/stylesheets/jquery.gridly.css' rel='stylesheet' type='text/css'>
+    <link href='JQueryGridly/stylesheets/sample.css' rel='stylesheet' type='text/css'>
+    <!-- 不需重複載 <script type="text/javascript" src="lib/jquery.min.js"></script> -->
+   	<!--<script src='JQueryGridly/javascripts/jquery.gridly.js' type='text/javascript'></script>
+    <script src='JQueryGridly/javascripts/sample.js' type='text/javascript'></script>
+    <script src='JQueryGridly/javascripts/rainbow.js' type='text/javascript'></script>-->
+    
+    <!-- Jquery ui 的函式庫 -->
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="JQueryUI/themes/base/jquery.ui.all.css">
+    
+    <!-- FullCalendar 的函式庫 -->
+    <link href='FullCalendar/fullcalendar/fullcalendar.css' rel='stylesheet' />
+    <link href='FullCalendar/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src='FullCalendar/lib/jquery-ui.custom.min.js'></script>
+    <script src='FullCalendar/fullcalendar/fullcalendar.min.js'></script>
+    
+    <script src='FullCalendar/customCalendar.js'></script>
+    <link href='FullCalendar/customCalendar.css' rel='stylesheet' />
+  
+  	<!-- 自製任務 -->
+  	<link rel="stylesheet" href="css/customTasks.css" />
+	<script src="js/customTasks.js"></script>
+
+    
+</head>
+<body style="width:1100px;">
+	
+
+    <!-- 最上方 -->
+    <div class="header">
+      
+      <!--<span id="logo"></span>-->
+      <center>
+      	  <span id="logo"></span>
+          <a href="#/" style="font-size:2em; align:center;" >
+            <i id="innerTitleIcon" class="fa fa-reply"></i> <font id="innerTitleText">Visual Scrum</font>
+          </a>
+          <span><i id="warningIcon" class="fa fa-cog"></i></span>
+          <span><i id="commentIcon" class="fa fa-comment"></i></span>
+          <span><i id="settingIcon" class="fa fa-exclamation-triangle"></i></span>
+          
+      </center>
+      
+      <!--<span class="user_name">陳玟儒</span>-->
+      
+    </div>
+    
+    <div style="position:relative;float:left; width:700px;">
+   		<div ng-view></div>
+	</div>
+
+	<!-- 最右方 -->
+	<div id="rightContainer">
+    	<span id="schedule"><img src="img/calendar.png"></span>
+    </div>
+
+ 	<!-- 月曆 以及 遮幕 -->
+ 	<div id="calendarContainer">
+    
+        <div id='wrap'>
+            <div id='calendar'></div>
+        </div>
+        <div style='clear:both'></div>
+
+	</div>
+ 
+</body>
+</html>

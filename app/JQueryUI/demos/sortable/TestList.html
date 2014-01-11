@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Sortable - Connect lists</title>
+	<link rel="stylesheet" href="../../themes/base/jquery.ui.all.css">
+	<script src="../../jquery-1.9.1.js"></script>
+	<script src="../../ui/jquery.ui.core.js"></script>
+	<script src="../../ui/jquery.ui.widget.js"></script>
+	<script src="../../ui/jquery.ui.mouse.js"></script>
+	<script src="../../ui/jquery.ui.sortable.js"></script>
+    <script src="../../ui/jquery.ui.droppable.js"></script>
+	<link rel="stylesheet" href="../demos.css">
+    
+	<style>
+	.sortable { list-style-type: none; margin: 0; padding: 0 0 2.5em; float: left; margin-right: 10px; }
+	.sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+	#calendar {
+		width: 900px;
+		margin: 0 auto;
+	}
+	
+	.backlog {
+		width: 280px;
+		border: 1px solid black;
+		margin: 0 10px 0 0;
+		padding: 0 0 50px 0;
+		position: absolute;
+		left: 300px;
+		float: left;
+	}
+	
+	.backlogOnDrop {
+		background:rbga(255,255,255,0.3);
+	}
+	</style>
+	<script>
+	$(function() {
+		
+		$( ".sortable" ).sortable({
+			connectWith: ".connectedSortable"
+		}).disableSelection();
+		
+		//Backlog
+		$('#backlog').droppable({
+			drop: function(event, ui){
+				alert('0');
+			},
+			over: function(event, ui) {
+				alert('1');
+			},
+			out: function(event, ui) {
+				alert('2');
+			},
+		});	
+	});
+	</script>
+
+</head>
+<body>
+
+<div id="backlog" class="backlog ui-widget-header">
+	<p>Drop here</p>
+</div>
+
+<ul class="sortable connectedSortable">
+	<li class="ui-state-default draggable" style="height:100px;">Item 1</li>
+	<li class="ui-state-default">Item 2</li>
+	<li class="ui-state-default">Item 3</li>
+	<li class="ui-state-default">Item 4</li>
+	<li class="ui-state-default">Item 5</li>
+</ul>
+
+<ul class="sortable connectedSortable">
+	<li class="ui-state-highlight">Item 1</li>
+	<li class="ui-state-highlight">Item 2</li>
+	<li class="ui-state-highlight">Item 3</li>
+	<li class="ui-state-highlight">Item 4</li>
+	<li class="ui-state-highlight">Item 5</li>
+</ul>
+
+</body>
+</html>
