@@ -34,11 +34,12 @@ function epicAreaInit( parentId ){
 		document.getElementById('new_epic').addEventListener('click',function(){
 			
 			//呼叫創造 new project 的方法
-			var newProject = newEpic(LayerAll, 'My Name is Jerry\'s Father ');
+			//var newProject = newEpic(LayerAll, 'My name is Jerry\'s father');
+			var newProject = newEpic(LayerAll, '新專案');
 		
 		},false);
 		
-		document.getElementById('new_epic').click();
+		//document.getElementById('new_epic').click();
 	});
 }
 
