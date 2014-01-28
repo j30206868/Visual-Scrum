@@ -117,20 +117,12 @@ html .fc,
 
 .fc-widget-header,    /* <th>, usually */
 .fc-widget-content {  /* <td>, usually */
-	border: 1px solid #ddd;
+	border: 1px solid #333;
 	}
 	
 .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzViNjE2YiIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMzYlIiBzdG9wLWNvbG9yPSIjNWI2MTZiIiBzdG9wLW9wYWNpdHk9IjAuODciLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzU2NTY1NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-background: -moz-linear-gradient(top,  rgba(91,97,107,0.8) 0%, rgba(91,97,107,0.87) 36%, rgba(86,86,86,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(91,97,107,0.8)), color-stop(36%,rgba(91,97,107,0.87)), color-stop(100%,rgba(86,86,86,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(91,97,107,0.8) 0%,rgba(91,97,107,0.87) 36%,rgba(86,86,86,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(91,97,107,0.8) 0%,rgba(91,97,107,0.87) 36%,rgba(86,86,86,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(91,97,107,0.8) 0%,rgba(91,97,107,0.87) 36%,rgba(86,86,86,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(91,97,107,0.8) 0%,rgba(91,97,107,0.87) 36%,rgba(86,86,86,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc5b616b', endColorstr='#565656',GradientType=0 ); /* IE6-8 */
-
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: rgba(102,102,102,1);
 	}
 
 .fc-event-skin {
@@ -393,7 +385,9 @@ table.fc-border-separate {
 .fc-border-separate tbody tr.fc-first th {
 	border-top-width: 0;
 	}
-	
+fc-border-separate{
+	border-color:#333;
+}
 	
 
 /* Month View, Basic Week View, Basic Day View
