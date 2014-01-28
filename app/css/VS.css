@@ -153,6 +153,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 	color:#FFF;
 }
 
+#new_epic{
+	padding:0px;
+	background:rgba(255,255,255,0);
+	font-size:3.5em;
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;	
+}
+
 .myCustomBtn {
 	font-size:14pt;
 	color:#333;

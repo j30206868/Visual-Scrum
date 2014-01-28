@@ -10,7 +10,7 @@ function epicAreaInit( parentId ){
 	var epicAreaWrapper = document.createElement( 'div' );
 	epicAreaWrapper.setAttribute('id', 'epicAreaWrapper');
 	
-	$( epicAreaWrapper ).append('<i id="new_epic" class="myCustomBtn fa fa-pencil-square-o"> 新增工作群組</i>');
+	$( epicAreaWrapper ).append('<i id="new_epic" class="myCustomBtn fa fa-pencil-square-o"></i>');
 	$( epicAreaWrapper ).append('<div id="epicBoard"></div>');
 	
 	$( '#'+epicAreaParentId ).append(epicAreaWrapper);
