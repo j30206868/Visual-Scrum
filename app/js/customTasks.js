@@ -1,5 +1,5 @@
 // JavaScript Document
-
+var subTaskIdCount = 1;
 function initTasks(){
 	var taskCounter = 0;
 	$('#taskGenerator').draggable({
@@ -21,7 +21,7 @@ function initTasks(){
 				taskHelper.setAttribute('class', 'tasks ui-widget-content ui-corner-tr');
 				taskHelper.setAttribute('identify', 'taskGenerator');
 				
-				$('<h5 class="ui-widget-header" style="width:150px; float:left;">任務'+taskCounter+'</h5><div class="taskEditWrapper"><i class="addSubTaskBtn fa fa-plus"></i><i class="editTask fa fa-cog"></i></div><ul class="subTaskSortable"></ul>').appendTo(taskHelper);
+				$('<h5 class="ui-widget-header taskTitle" style="">任務'+taskCounter+'</h5><div class="taskEditWrapper"><i class="addSubTaskBtn fa fa-plus"></i><i class="editTask fa fa-cog"></i></div><ul class="subTaskSortable"></ul>').appendTo(taskHelper);
 				
 				var newTaskId = "task_"+taskCounter;
 				var newTask = taskHelper;
@@ -73,8 +73,8 @@ function initTasks(){
 					
 					console.log(sortableContainer);
 					
-					$('<li class="subTasks">tasks</li>').appendTo( sortableContainer );
-					
+					$('<li class="ui-widget-header subTasks" id=st_"'+subTaskIdCount+'">子任務'+subTaskIdCount+'</li>').appendTo( sortableContainer );
+					subTaskIdCount++;
 				});	
 				
 				//註冊 任務編輯功能

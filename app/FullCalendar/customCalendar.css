@@ -83,3 +83,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9c9c9', end
 	height:100%;
 	display: block;
 }
+
+
+.calendarTasks {
+	list-style: none;
+	padding: 2px 7px 2px 2px;
+	background-color:#09F !important;
+	list-style-position: inside;  
+	margin: 0 3px 3px 3px;
+	
+	font-size:0.83em;
+	font-family:"Lato", "Helvetica", serif;
+	font-weight:bold;
+}

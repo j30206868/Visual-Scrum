@@ -7,7 +7,7 @@ $(document).ready(function() {
 			row: td.parents('tbody').children().index(td.parent()),
 			col: td.parent().children().index(td)
 		};
-		console.log("時間: "+calInstance.fullCalendar('getView').cellDate(cellPos));
+		//console.log("時間: "+calInstance.fullCalendar('getView').cellDate(cellPos));
 		return calInstance.fullCalendar('getView').cellDate(cellPos);
 	}
 	
@@ -42,9 +42,6 @@ $(document).ready(function() {
 				title: 				$.trim($(ui.item).text()), 		// use the element's text as the event title
 				start: 				new Date("2013-02-18T18:00:00"),//"2013-02-18T18:00:00", //day,
 				end: 				new Date("2013-02-18T18:00:00"),//"2013-02-18T18:00:00",//day,
-				backgroundColor: 	$(ui.item).css('background-color'),
-				borderColor: 		$(ui.item).css('background-color'),
-				textColor: 			$(ui.item).css('color'),
 				allDay: true 
 				};
 		
@@ -77,7 +74,7 @@ $(document).ready(function() {
 		//dropAccept: '#cal_external-events div.cal_external-event',
 		drop: function(date, allDay) { // this function is called when something is dropped
 		
-			console.log("$(this).data('eventObject') = "+$(this).data('eventObject'));
+			//console.log("$(this).data('eventObject') = "+$(this).data('eventObject'));
 		
 			// retrieve the dropped element's stored Event Object
 			var originalEventObject = $(this).data('eventObject');
@@ -105,6 +102,9 @@ $(document).ready(function() {
 				if ( $(ui.draggable).data('dropped') == false ) {
 					// Get the event and init with the date
 					var eventObject = $(ui.draggable).data('eventObject');
+					
+					console.log(eventObject);
+			
 					var ddrop 		= getDateFromCell( $(this), $('#calendar') );
 					eventObject.start = ddrop ;
 					eventObject.end = ddrop ;
@@ -114,7 +114,15 @@ $(document).ready(function() {
 	
 					// render the event on the calendar
 					// the last `true` argument determines if the event "sticks" 
-					$('#calendar').fullCalendar('renderEvent', eventObject, true);
+					//$('#calendar').fullCalendar('renderEvent', eventObject, true);
+					$('#calendar').fullCalendar('addEventSource', {
+						events: [
+							eventObject
+						],
+						className: 	'calendarTasks',//$(ui.item).attr('class'),
+						editable: true,
+						allDay: true 
+					});
 	
 					// Dropped flag is true state now
 					$(ui.draggable).data('dropped') == true

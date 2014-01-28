@@ -45,6 +45,10 @@
 	background:#ccc;
 	list-style-position: inside;  
 	margin: 0 3px 3px 3px;
+	
+	font-size:0.83em;
+	font-family:"Lato", "Helvetica", serif;
+	font-weight:bold;
 }
 
 .sortablePlaceHolder {
@@ -66,6 +70,12 @@
 	text-align: center; 
 	list-style:none;
 	margin-bottom:10px;
+}
+
+.taskTitle{
+	width:150px; 
+	float:left;
+	font-size:1em;
 }
 .tasks h5 { margin: 0 0 0.4em; cursor: move; }
 .tasks a { float: right; }
