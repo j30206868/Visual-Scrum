@@ -73,7 +73,46 @@ function initTasks(){
 					
 					console.log(sortableContainer);
 					
-					$('<li class="ui-widget-header subTasks" id=st_"'+subTaskIdCount+'">子任務'+subTaskIdCount+'</li>').appendTo( sortableContainer );
+					//$('<li class="ui-widget-header subTasks" id=\"st_"'+subTaskIdCount+'\"">子任務'+subTaskIdCount+'<i class="editTask fa fa-cog"></li>').appendTo( sortableContainer );
+					
+					//創建子任務element
+					var newSTID = 'st_'+subTaskIdCount;
+					jQuery('<li/>', {
+						id: newSTID,
+						class: 'ui-widget-header subTasks',
+						title: '子任務'
+					}).appendTo( sortableContainer );
+					
+					jQuery('<font/>',{
+						class: 'subTaskFont',
+						text: '子任務'+subTaskIdCount
+					}).appendTo('#'+newSTID);
+					
+					jQuery('<i>',{
+						class: 'editTask fa fa-cog',
+						style: 'float:right;'
+					}).appendTo('#'+newSTID);
+					
+					
+					//註冊 子任務編輯功能
+					$('#'+newSTID+' > .editTask').on('click',function(){
+						var _container = $(this).parent();
+						
+						console.log(this);
+						
+						var edX = $(this).offset().left - 33;
+						var edY = $(this).offset().top - 100;
+						
+						var editContainer = initEditDialog( edX, edY, _container.children('.subTaskFont').text(), 
+						function( _value ){
+							_container.children('.subTaskFont').text( _value );
+						},
+						function(){
+							//_container.remove();
+							//_container.sortable('disable');						
+						} );
+					});
+					
 					subTaskIdCount++;
 				});	
 				

@@ -46,7 +46,8 @@
     <!-- FullCalendar 的函式庫 -->
     <link href='FullCalendar/fullcalendar/fullcalendar.css' rel='stylesheet' />
     <link href='FullCalendar/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-    <script src='FullCalendar/lib/jquery-ui.custom.min.js'></script>
+   <!-- <script src='FullCalendar/lib/jquery-ui.custom.min.js'></script>-->
+    <script src="lib/calendar.js"></script>
     <script src='FullCalendar/fullcalendar/fullcalendar.min.js'></script>
     
     <script src='FullCalendar/customCalendar.js'></script>
@@ -55,7 +56,6 @@
   	<!-- 自製任務 -->
   	<link rel="stylesheet" href="css/customTasks.css" />
 	<script src="js/customTasks.js"></script>
-
     
 </head>
 <body style="width:1100px;">
@@ -87,6 +87,7 @@
 	<!-- 最右方 -->
 	<div id="rightContainer">
     	<span id="schedule"><img src="img/calendar.png"></span>
+        <span>近期到期任務提示(伸縮)</span>
     </div>
 
  	<!-- 月曆 以及 遮幕 -->
@@ -98,6 +99,6 @@
         <div style='clear:both'></div>
 
 	</div>
- 
+
 </body>
 </html>

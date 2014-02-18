@@ -50,6 +50,17 @@
 	font-family:"Lato", "Helvetica", serif;
 	font-weight:bold;
 }
+.editTask{
+	color:#444;
+}
+.addSubTaskBtn{
+	color:#444;
+	padding: 1px 2px 1px 7px;
+}
+.editTask:hover, .addSubTaskBtn:hover{
+	color:#000;
+	cursor:pointer;
+}
 
 .sortablePlaceHolder {
 	background:#DDD;
