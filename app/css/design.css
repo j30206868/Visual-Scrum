@@ -1,0 +1,283 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+.bar {
+	position: relative;
+	width: 100%;
+}
+
+section#blank_bar {
+	background: #312a1e;
+	float: left;
+	height: 20px;
+}
+
+
+header#header_bar {
+	background: #99d9ea;
+	float: left;
+	height: 80px;
+}
+
+div.table {
+	position: relative;
+	float: left;
+	height: 80px;
+}
+
+div#logo {
+	margin: 5px 0px 0px 10%;
+	background-image: url('../img/logo.png');
+	background-size: 70px;
+	background-repeat: no-repeat;
+	width: 100px;
+}
+
+div#topic {
+	width: 40%;
+}
+
+div#topic h1 {
+	margin: 10px 0px 0px 15px;
+	color: #ffffff;
+	font-style: italic;
+	font-weight: bold;
+}
+
+div#topic h3 {
+	margin: 0px 0px 0px 20px;
+	color: #ffffff;
+}
+
+ul#menu {
+	float: right;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	width: 30%;
+}
+
+ul#menu li {
+	position: relative;
+	transition: all 0.5s;
+}
+
+ul#menu li > ul {
+	display: none;
+}
+
+ul#menu li:hover > ul {
+	display: block;
+}
+
+li.icon {
+	color: #ffffff;
+	float: right;
+	padding: 11px 5%;
+	cursor:pointer;
+}
+
+ul#menu li:hover {
+	color: #312a1e;
+}
+
+ul#menu ul {
+
+	/*scroll bar
+	 *max-height: 200px;
+	 *overflow-y: auto;
+	 *overflow-x: hidden;*/
+	 
+	list-style: none;
+	padding: 0px 0px 0px 14px;
+	position: absolute;
+	top: 70px;
+	left: -110px;
+	z-index: 99;
+	background: #312a1e;
+	width: 200px;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+ul#menu ul li {
+	float: none;
+	padding: 13px 0px 13px 5px;
+	display: block;
+	
+	/*divider line
+	 *box-shadow: 0 1px 0 #111, 0 2px 0 #777;*/
+	
+	font-size: 15px;
+	box-sizing: border-box;
+	color: #ffffff;
+	height: 40px;
+	transition: background .3s;
+}
+
+ul#menu ul li > div.mark {
+	width: 6px;
+	height: 40px;
+	background: #0099ff;
+	float: left;
+	position: absolute;
+	left: -6px;
+	top: 0px;
+}
+
+ul#menu ul li:last-child {
+	box-shadow: none;
+	border-radius: 0px 0px 7px 0px;
+}
+
+ul#menu ul li:first-child {
+	border-radius: 0px 7px 0px 0px;
+}
+
+
+ul#menu ul li:hover {
+	background: #ffff99;
+}
+
+ul#menu ul li:first-child:after{
+    content: '';
+    position: absolute;
+    left: 145px;
+    top: -13px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 13px solid #312a1e;
+}
+
+ul#menu:after {
+	visibility: hidden;
+	display: block;
+	content: " ";
+	clear: both;
+	height: 0px;
+}
+
+/* modal window */
+
+div.modal_window {
+	position: fixed;
+	font-family: arial;
+	font-size:80%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.2);
+	z-index: 999;
+	opacity:0;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+	border-radius: 10px;
+}
+
+div.modal_header h2 { 
+	color: #ffffff; 
+}
+	
+div.modal_window:target {
+	opacity:1;
+	pointer-events: auto;
+}
+	
+div.modal_window > div {
+	width: 500px;
+	position: relative;
+	margin: 10% auto;
+	border-radius: 10px;
+	background: #ffffff;
+}
+	
+div.modal_window div.modal_header {    
+	padding: 5px 20px 5px 20px; 
+	background: #312a1e;
+	border-radius: 10px 10px 0px 0px;
+}
+
+div.modal_window div.modal_content {    
+	padding: 0px 20px 5px 20px; 
+	height: 200px;
+	overflow-y: auto;
+}
+
+div.modal_footer {
+	padding: 8px 20px 8px 20px;
+	border-radius: 0px 0px 10px 10px;
+	background: #f1f1f1;
+	border-top: 1px solid #999;
+    box-shadow: inset 0px 13px 12px -14px #888888;
+}
+	
+div.modal_footer p {
+    color:#d4482d;
+    text-align:right;
+    margin:0;
+    padding: 5px;
+}
+	
+a.ok, a.close, a.cancel {
+	background: #606061;
+	color: #ffffff;
+	line-height: 25px;
+	text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px #000;
+}
+
+a.close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 22px;
+	height: 22px;
+	font-size: 10px;
+ 
+}
+	
+a.ok, a.cancel {
+    width:80px;
+    float:right;
+    margin-left:20px;
+}
+	
+a.ok:hover { 
+	background: #189cda; 
+}
+
+a.close:hover, a.cancel:hover { 
+	background: #d4482d; 
+}
+
+div.clear { 
+	float:none; 
+	clear: both; 
+}
+
+div#wrapper {
+	text-align: center;
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	height: 300px;
+}
+
+/* footer */
+
+footer#footer_bar {
+	bottom: 0px;
+	width: 100%;
+	height: 20px;
+	position: absolute;
+	background: #312a1e;
+}

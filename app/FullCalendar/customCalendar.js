@@ -64,6 +64,7 @@ $(document).ready(function() {
 	/* initialize the calendar
 	-----------------------------------------------------------------*/
 	$('#calendar').fullCalendar({
+		theme: true,
 		header: {
 			left: 'prev,next today',
 			center: 'title',
@@ -137,6 +138,26 @@ $(document).ready(function() {
 	$("#calendarContainer").css('display', 'none');
 });
 
+$("#scheduleIcon").ready(function(e) {
+    $("#scheduleIcon").on('click', function(){
+		console.log('click');
+		if( $('#calendarContainer').css('display') == 'none' ){
+			$('#calendarContainer').css('display', 'block');
+		}else{
+			$('#calendarContainer').css('display', 'none');
+		}
+	});
+	
+	$('#calendarContainer').on("click", function(){
+		$('#calendarContainer').css('display', 'none');
+	});
+	
+	$('#wrap').on('click', function(evt){
+		evt.stopPropagation();
+	});
+
+});
+
 //schedule 區域初始化
 $('#schedule').ready(function() {
 	var mouseEvent;
@@ -146,11 +167,16 @@ $('#schedule').ready(function() {
 	
 	//Backlog
 	$('#schedule').droppable({
-		over: function(evt, ui){
-
+		//拖曳任務到日曆上彈出月曆
+		
+		/*over: function(evt, ui){
 			//show calendar
 			$('#calendarContainer').css('display', 'block');
 			$('#calendar').fullCalendar( 'render' );
+		},*/
+		hoverClass: "schedule_hover",
+		drop: function(evt, ui){
+			
 		},
 		tolerance: "pointer"
 	});
@@ -164,11 +190,11 @@ $('#schedule').ready(function() {
 	});
 	
 	// Calendar
-	$('#calendarContainer').on('click', function(){
+	/*$('#calendarContainer').on('click', function(){
 		$(this).css('display', 'none');
 	});
 	
 	$('#wrap').on('click', function(evt){
 		evt.stopPropagation();
-	});
+	});*/
 });

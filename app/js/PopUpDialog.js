@@ -16,7 +16,7 @@ function(){
 */
 
 //epic使用
-function initEditDialog(_x, _y, _text, textChangeEvent, markOverEvent){
+function initEditDialog(_x, _y, _text, targetType, textChangeEvent, markOverEvent){
 	var isInsideDynEditor = 0;
 
 	
@@ -72,7 +72,7 @@ function initEditDialog(_x, _y, _text, textChangeEvent, markOverEvent){
 		var sY = parseInt(_y) + parseInt( $(editContainer).css('height').substr(0, $(editContainer).css('height').length-2) ) - 7;
 		//創下拉選單
 		if( $('#dyn_SelctContainer')[0] == undefined ){
-			initEditPopUpSelection( sX, sY, markOverEvent );
+			initEditPopUpSelection( sX, sY, targetType, markOverEvent );
 			editDetailIcon.setAttribute('class', 'fa fa-caret-down');
 		}else{
 			document.body.removeChild( document.getElementById('dyn_SelctContainer') );
@@ -130,7 +130,7 @@ function initEditDialog(_x, _y, _text, textChangeEvent, markOverEvent){
 	return editContainer;
 }
 
-function initEditPopUpSelection(_x, _y, markOverEvent){
+function initEditPopUpSelection(_x, _y, targetType, markOverEvent){
 	
 	var editSelctContainer = document.createElement('div');
 	editSelctContainer.setAttribute('id', 'dyn_SelctContainer');
@@ -138,19 +138,50 @@ function initEditPopUpSelection(_x, _y, markOverEvent){
 	
 	var _ui = document.createElement('ui');
 	
-	var _option1 = document.createElement('li');
-	_option1.setAttribute('class', 'fa fa-lock');
-	_option1.innerHTML = ' 標示為已過期';
+	if( targetType != "subtask"){
+		//新增 標示過期
+		addOption(_ui, 'fa fa-lock', " 標示為已過期",function(){
+			markOverEvent();	
+		} );	
+	}
 	
-	_option1.addEventListener('mousedown', function(evt){	
+	//新增 設定時間選項
+	addOption(_ui, 'fa fa-comment', " 參與討論",function(){
+			
+	} );
+	
+	if( targetType == "subtask" ){
+		//新增 分派任務
+		addOption(_ui, 'fa fa-user', " 分派任務",function(){
+				
+		} );	
+		
+		//新增 設定時間選項
+		addOption(_ui, 'fa fa-calendar-o', " 設定執行期間",function(){
+			$("#pop_win_wrapper").css("display", "block");
+		} );
+	}
+	
+	editSelctContainer.appendChild( _ui );
+	
+	document.body.appendChild( editSelctContainer );
+	
+}
+
+function addOption(supperUi, iconClass, textMessage, clickEvent){
+	var _option = document.createElement('li');
+	_option.setAttribute('class', iconClass);
+	_option.innerHTML = textMessage;
+	
+	_option.addEventListener('mousedown', function(evt){	
 	
 		//阻止user滑鼠還沒放開時就刪除dialog	
 		evt.stopPropagation();
 	
 	}, false);
 	
-	_option1.addEventListener('click', function(evt){	
-		markOverEvent();
+	_option.addEventListener('click', function(evt){	
+		clickEvent();
 		
 		//觸發點擊事件 使整個dialog跟著消失
 		//可能會有ie不支援問題 ie 沒有 dispatchEvent
@@ -159,14 +190,5 @@ function initEditPopUpSelection(_x, _y, markOverEvent){
 		document.body.dispatchEvent( mousedownEvt );
 	}, false);
 	
-	var _option2 = document.createElement('li');
-	_option2.setAttribute('class', 'fa fa-user');	
-	_option2.innerHTML = ' 分派任務';
-	
-	_ui.appendChild( _option1 );
-	_ui.appendChild( _option2 );
-	editSelctContainer.appendChild( _ui );
-	
-	document.body.appendChild( editSelctContainer );
-	
+	supperUi.appendChild(_option);
 }

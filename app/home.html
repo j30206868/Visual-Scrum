@@ -57,6 +57,17 @@
   	<link rel="stylesheet" href="css/customTasks.css" />
 	<script src="js/customTasks.js"></script>
     
+    <!-- Small backlog -->
+    <link rel="stylesheet" type="text/css" href="css/slidernav.css" media="screen, projection" />
+    <script type="text/javascript" src="lib/slidernav.js"></script>
+    
+    <!-- Pop Win-->
+    <link rel="stylesheet" type="text/css" href="css/pop_win.css" media="screen, projection" />
+    <script type="text/javascript" src="js/pop_win.js"></script>
+    
+    <!-- datetimepicker -->
+    <script type="text/javascript" src="lib/datetimepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/datetimepicker.css" media="screen, projection" />
 </head>
 <body style="width:1100px;">
 	
@@ -86,8 +97,27 @@
 
 	<!-- 最右方 -->
 	<div id="rightContainer">
-    	<span id="schedule"><img src="img/calendar.png"></span>
-        <span>近期到期任務提示(伸縮)</span>
+    	<div><i id="scheduleIcon" class="fa fa-calendar win_func_icon"></i></div>
+        <div><i class="fa fa-tasks win_func_icon"></i></div>
+    
+    	<!--<span id="schedule"><img src="img/calendar.png"></span>
+        
+        <div id="slider">
+            <div class="slider-content">
+                <ul>
+                    <li id="三天"><a name="ThreeDays" class="title">即將到期的任務</a>
+                        <ul>
+                            <li>子任務11</li>
+                            <li>子任務1</li>
+                            <li>子任務2</li>
+                            <li>子任務5</li>
+                            <li>子任務20</li>
+                            <li>子任務6</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
     </div>
 
  	<!-- 月曆 以及 遮幕 -->
@@ -99,6 +129,26 @@
         <div style='clear:both'></div>
 
 	</div>
-
+    
+    <!-- 彈出視窗 -->
+    <div id="pop_win_wrapper">
+        <div id="pop_win" class="pop_win">
+			<center> <font id="subtask_tasktime_title">子任務1</font>時間設置 </center>
+            <hr>
+        	時間特性：	
+            <select>
+                <option value="single">單日事件</option>
+                <option value="range">長期性任務</option>
+                <option value="repeat">每週重複</option>
+            </select>
+            <br/>
+            開始時間：	<input type="text" id="subtask_startdate_picker" class="datetimepicker"/><br/>
+            結束時間：	<input type="text" id="subtask_enddate_picker" class="datetimepicker"/><br/>
+            到期前提示： <input type="number" id="subtask_hinttime_picker" value="1" min="1" max="30">天<br/>
+            重複次數： <input type="number" id="subtask_repeat_picker" value="1" min="1" max="100">次<br/>
+            <center><input  id="subtask_tasktime_submit" type="button" value="確定"/>
+            		<input id="subtask_tasktime_cancel" type="button" value="取消"/></center>
+        </div>
+	</div>
 </body>
 </html>

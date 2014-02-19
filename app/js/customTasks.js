@@ -21,7 +21,7 @@ function initTasks(){
 				taskHelper.setAttribute('class', 'tasks ui-widget-content ui-corner-tr');
 				taskHelper.setAttribute('identify', 'taskGenerator');
 				
-				$('<h5 class="ui-widget-header taskTitle" style="">任務'+taskCounter+'</h5><div class="taskEditWrapper"><i class="addSubTaskBtn fa fa-plus"></i><i class="editTask fa fa-cog"></i></div><ul class="subTaskSortable"></ul>').appendTo(taskHelper);
+				$('<h5 class="ui-widget-header taskTitle" style="">任務'+taskCounter+'</h5><div class="taskEditWrapper"><i class="addSubTaskBtn fa fa-plus"></i><i class="editTask fa fa-cogs"></i></div><ul class="subTaskSortable"></ul>').appendTo(taskHelper);
 				
 				var newTaskId = "task_"+taskCounter;
 				var newTask = taskHelper;
@@ -103,7 +103,7 @@ function initTasks(){
 						var edX = $(this).offset().left - 33;
 						var edY = $(this).offset().top - 100;
 						
-						var editContainer = initEditDialog( edX, edY, _container.children('.subTaskFont').text(), 
+						var editContainer = initEditDialog( edX, edY, _container.children('.subTaskFont').text(), "subtask", 
 						function( _value ){
 							_container.children('.subTaskFont').text( _value );
 						},
@@ -124,7 +124,7 @@ function initTasks(){
 					var edX = $(this).offset().left - 40;
 					var edY = $(this).offset().top - 105;
 					
-					var editContainer = initEditDialog( edX, edY, _container.children('.ui-widget-header').text(), 
+					var editContainer = initEditDialog( edX, edY, _container.children('.ui-widget-header').text(), "task", 
 					function( _value ){
 						_container.children('.ui-widget-header').text( _value );
 					},

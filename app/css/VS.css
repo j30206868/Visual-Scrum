@@ -84,7 +84,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 	left:-12px;
 	
 	width:170px;
-	height:600px;
+	height:100px;
 	padding:5px;
 }
 
@@ -136,6 +136,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 	border: 2px solid black;
 }
 
+.schedule_hover {
+	padding: 3px !important;
+	cursor: pointer !important;
+	border: 2px solid black !important;
+}
+
 #warningIcon,#commentIcon, #settingIcon {
 	color: #FFF;
     text-shadow: 1px 1px 1px #ccc;
@@ -181,7 +187,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
 	border-radius: 5px;
 }
 
-
+.win_func_icon {display:block; float:right;  font-size:54px; padding:10px 15px;}
+.win_func_icon:hover {	font-size:56px; padding:10px 14px; cursor:pointer; box-shadow: 0px 0px 5px 2px #888888;}
 
 /*
 	tasks.html css

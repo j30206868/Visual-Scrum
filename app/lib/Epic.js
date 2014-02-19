@@ -130,7 +130,7 @@ function newEpic(_layer, _epicName){
 		// editorImg 是_editor裡面的圖
 		var _editor = new Kinetic.Image({
 			x: _text.getWidth() + 5,
-			y: _text.getHeight()*2,
+			y: _epic.getY() + 30,
 			image: editorImg,
 			width: 20,
 			height: 20,
@@ -152,7 +152,9 @@ function newEpic(_layer, _epicName){
 			var edX = this.getStage().attrs.container.offsetLeft + _group.getX() + this.getX() - 25;
 			var edY = this.getStage().attrs.container.offsetTop + _group.getY() + this.getY() - 45;
 			
-			var editContainer = initEditDialog( edX, edY, _text.getText(), 
+			console.log(this.getStage());
+			
+			var editContainer = initEditDialog( edX, edY, _text.getText(), "epic", 
 			function( _value ){
 				_text.setText( _value );
 				_layer.draw();

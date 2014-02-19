@@ -102,6 +102,9 @@ function PhoneListCtrl($scope, $http) {
 	//Initiate Stage(Canvas) and all pre-build elements in project page
 	epicAreaInit( 'content' );
 	
+	//啟動small backlog
+	$('#slider').sliderNav({items: ["三天","一週"], arrows: false, height: '200'});
+	
 	//hide arrow in the front of page title
 	$('#innerTitleIcon').css('display', 'none');
 	$('#innerTitleText').text('Visual Scrum');
